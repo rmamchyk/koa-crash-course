@@ -4,6 +4,7 @@ const json = require('koa-json');
 const path = require('path');
 const render = require('koa-ejs');
 const bodyParser = require('koa-bodyparser');
+const logger = require('koa-morgan');
 
 const app = new Koa();
 const router = new KoaRouter();
@@ -13,6 +14,9 @@ const things = ['My family', 'Programming', 'Music'];
 
 // Json prettier middleware
 app.use(json());
+
+// Logger
+app.use(logger('tiny'));
 
 // BodyParser middleware
 app.use(bodyParser());
